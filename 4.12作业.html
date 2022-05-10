@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ul{
+
+                color: aliceblue;
+                list-style: none;
+                height: fit-content;
+                padding-left: 1px;
+                overflow: auto;
+                list-style-type: square;
+            }
+            list{
+                display: inline-block;
+                line-height: 30px;
+                width: 70px;
+                border-right: 5px solid;
+                list-style: square inside url(searching.jpg);
+            }
+            a{
+                text-decoration: dotted;
+                color: aliceblue;
+            }
+            p{
+                color:palevioletred;
+                text-align: center;
+                text-shadow: 200px;
+                height: max-content;
+                font-size: 15ch;
+
+            }
+            body{
+                background: url(R-C.jpg);
+                background-image: url(R-C.jpg);
+                background-size: 100%;
+            }
+            input[type=text] {
+                width: auto;
+                padding: 10px;
+                background-image: url(‘searching.jpg’);
+                padding: 12px 20px 14px 12px;
+                border: 20px;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+                -webkit-transition: width 0.4s ease-in-out;
+                transition:width 0.7s ease-in-out
+             }
+             input[type=text]:focus{
+                 border: 20px;
+             }
+             input[type=button] {
+                 background-color: black;
+                 color: aliceblue;
+                 margin: auto;
+                }
+            form{
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <list>head</li>
+            <list><a href="start">start</a></li>
+            <list><a href="go">go</a></li>
+            <list>home</li>
+            <list><a href="news">news</a></li>
+        </ul>
+        <div class="background">
+            <div class="tramsform"> 
+                <p>welcom!</p>
+            </div>
+        </div>
+        <form website="input" action="" method="get">
+            <input type="text" website="website" value="what you want know" size="20">
+            <input type="button" value="go!">
+        </form>
+    </body>
+</html>
