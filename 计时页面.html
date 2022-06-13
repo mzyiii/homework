@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cumulative from 1 after page loaded </title>
+
+    <style>
+        p {
+            text-align: center;
+        }
+        
+        div {
+            text-align: center;
+        }
+        
+        button {
+            margin: 50px;
+            width: 650px;
+            height: 200px;
+            font-size: 30px;
+        }
+        
+        span {
+            color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>
+        <button onclick="timing()">计时开始</button>
+        <div id="demo">
+
+        </div>
+
+        <script>
+            function timing() {
+                var oBody = document.getElementById("demo");
+                var i = 0;
+                setInterval(updateNum, 1000);
+                updateNum();
+
+                function updateNum() {
+                    var j = i++;
+                    oBody.innerHTML = "Time passed: " + "<span>" + j + "</span>" + " s";
+                }
+            }
+        </script>
+    </p>
+</body>
+
+</html>
