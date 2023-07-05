@@ -1,0 +1,111 @@
+body{
+   background-color:cornsilk;
+   color: orange;
+}
+header a{
+   color: green;
+}
+header#header li{
+   float: left;
+}
+header#header ul{
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
+}
+header li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none; 
+   float: left;
+   list-style-type: none;
+}
+section#banner div{
+   float: left;
+   width: 50%;
+}
+section header{
+   background-color: green;
+   height: 40px;
+   width: auto;
+   text-align: center;
+}
+section#banner div.content p{
+height: 400px;
+font-size: 32px;
+font-style: oblique;
+}
+header.major h2{
+text-align: center;
+}
+div.posts h3{
+   width: 80px;
+   height: 40px;
+   border-bottom: 10px;
+   border-top: 10px;
+   background-color: #333;
+   text-align: center;
+   float: initial;
+   position: relative;
+   top: 0;
+   left: 50%;
+}
+div.posts p{
+   position: relative;
+   top: 0;
+   left: 5%;
+}
+div.posts ul{
+   list-style-type: none;
+}
+div.posts li a{
+   background-color:none;
+   float: right;
+   list-style-type: none;
+}
+section#search{
+   width: 100%;
+  position: absolute;
+  display: flex;
+}
+nav#menu ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
+}
+nav#menu li {
+   float: left;
+}
+nav#menu li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+nav#menu li a:hover {
+   background-color: #111;
+}
+section header.major{
+   background-color:none;
+   text-align: center;   
+}
+section ul.contact{
+   text-align: center;
+   list-style-type: none;
+}
+section ul.contact li:hover{
+   color: aqua;
+}
+footer#footer{
+   height: 2cm;
+   display: flex;
+   color:black;
+   text-align: center;
+}

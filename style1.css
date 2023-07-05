@@ -1,0 +1,109 @@
+ body{
+     background-color: bisque;
+ }
+ header a{
+     size: 40mm;
+     color: orange;
+ }
+ header#header{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+header#header ul{
+    float: right;
+} 
+header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; 
+    float: left;
+}
+div.posts ul{
+    text-align: center;
+    background-color:hotpink;
+    width: auto;
+    float: right;
+}
+ li a:hover {
+    background-color: #111;
+}
+ h3{
+    text-align: center;
+    width: 180px;
+    height: 40px;
+    background-color: beige;
+}
+h1,h2,{
+    color: brown;
+    background-color: beige;
+    size: 2ch;
+    text-align: left;
+}
+ article div.content{
+    float: left;
+    width: 50%;
+}
+p{
+    text-align: justify;
+}
+ li{
+    background-repeat: no-repeat;
+    background-position: 0px 5px; 
+    padding-left: 14px; 
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    color: aquamarine;
+}
+nav#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+nav#menu li {
+    float: left;
+}
+nav#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav#menu li a:hover {
+    background-color: #111;
+}
+section{
+    overflow: auto;
+
+}
+section header{
+    background-color:orange;
+    text-align: center;   
+}
+section ul{
+    width: 1400px;
+    text-align: center;
+}
+section ul li:hover{
+    color: aqua;
+}
+footer{
+    height: 2cm;
+    display: flex;
+    color:black;
+    text-align: center;
+}
