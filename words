@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<style>
+    #start {
+        position: absolute;
+        left: 50%;
+        bottom: 20%;
+        transform: translate(-50%, -50%);
+        font-size: 100px;
+    }
+    #word, #score {
+        font-size: 200px;
+        text-align: center;
+        justify-content: center;
+        align-items: center; 
+        border-radius: 300em;
+        box-shadow:6px 6px 12px #333;
+        background-color:yellow;
+    }
+    #timer{
+        text-align: right;
+        font-size: 50px;
+    }
+    #word span {
+        cursor: move;
+    }
+    body {
+        background-color: #FFB7C5; 
+    }
+    #title {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        font-size: 80px;
+        font-weight: bold;
+    }
+    background{
+        color: blanchedalmond;
+    }
+    button{
+        width: 9em;
+        height: 4em;
+        border-radius: 30em;
+        font-size: 15px;
+        font-family: inherit;
+        position: relative;
+        box-shadow: 6px 6px 12px #333;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1;
+    }
+    button::before{
+        content: ;
+        width: 0;
+        height: 3em;
+        border-radius: 30em;
+        position:absolute;
+        top: 0;
+        left: 0;
+    }
+    button:hover{
+        color: blue;
+
+    }
+</style>
+
+<div id="title">英语单词大闯关</div>
+<div id="start">
+    <button onclick="startGame()">开始</button>
+</div>
+<div id="game" style="display: none;">
+    <h1>单词闯关游戏</h1>
+    <div id="word" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="score"></div>
+    <div id="timer"></div>
+</div>
+<script>
+    // ... 你的JavaScript代码 ...
+    let words = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape', 'honeydew', 'iceberg', 'jackfruit'];
+    let score = 0;
+    let timer = null;
+    let draggedElement=null;
+	let timerId= null;
+    let completedWords = 0;
+     
+    function startGame() {
+        document.getElementById('title').style.display = 'none';
+        document.getElementById('start').style.display = 'none';
+        document.getElementById('game').style.display = 'block';
+        chooseWord();
+        timer = setInterval(() => {
+            let time = parseInt(document.getElementById('timer').innerText);
+            if (time <= 0) {
+                clearInterval(timer);
+                alert('时间到，游戏结束！');
+                location.reload();
+            } else {
+                document.getElementById('timer').innerText = time - 1;
+                
+            }
+        }, 1000);
+    }
+    function chooseWord() {
+        let word = words[Math.floor(Math.random() * words.length)];
+        let shuffledWord = word.split('').sort(() => .5 - Math.random());
+        let wordDiv = document.getElementById('word');
+        wordDiv.innerHTML = '';
+        for (let letter of shuffledWord) {
+            let span = document.createElement('span');
+            span.innerText = letter;
+            span.draggable = true;
+            span.ondragstart = drag;
+            wordDiv.appendChild(span);
+        }
+        document.getElementById('timer').innerText = 30;
+    }
+    
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.innerText);
+    draggedElement = event.target;
+}
+
+function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("text");
+    var newElement = document.createElement('span');
+    newElement.innerText = data;
+    newElement.draggable = true;
+    newElement.ondragstart = drag;
+    event.target.appendChild(newElement);
+    draggedElement.remove();
+    checkWord();
+}
+     
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+    function checkWord() {
+    let wordDiv = document.getElementById('word');
+    let currentWord = Array.from(wordDiv.children).map(span => span.innerText).join('');
+    if (words.includes(currentWord)) {
+        completedWords += 1;
+        if (completedWords >= 5) {
+            clearInterval(timerId);
+            document.getElementById('game').style.display = 'none';
+            document.getElementById('start').style.display = 'block';
+            document.getElementById('start').innerText = 'Congratulate!';
+        } else {
+            clearInterval(timerId);
+            chooseWord();
+            timerId = setInterval(countDown, 1000);
+        }
+    }
+}
+</script>
